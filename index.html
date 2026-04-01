@@ -12,25 +12,25 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --navy-deep: #070e1a;
-      --navy: #0a1628;
-      --navy-light: #111d33;
-      --navy-mid: #162440;
-      --gold: #c9a227;
-      --gold-light: #e8c84a;
-      --gold-pale: #f5e6a3;
-      --gold-dark: #a07d0e;
-      --cream: #f8f5ed;
-      --cream-dark: #e8e2d4;
+      --navy-deep: #0a1628;
+      --navy: #0f1e36;
+      --navy-light: #152844;
+      --navy-mid: #1a3054;
+      --gold: #4f91fd;
+      --gold-light: #6fa8ff;
+      --gold-pale: #b8d4ff;
+      --gold-dark: #3a73d4;
+      --cream: #f5f7fa;
+      --cream-dark: #e4e8ef;
       --white: #ffffff;
-      --gray-100: #f0eee9;
-      --gray-200: #d4d0c7;
-      --gray-400: #8a8575;
-      --gray-600: #5a5647;
-      --gray-800: #2a2720;
-      --text-dark: #1a1714;
-      --text-body: #3d3a33;
-      --text-muted: #6b665a;
+      --gray-100: #f0f2f5;
+      --gray-200: #d5d9e0;
+      --gray-400: #7c8493;
+      --gray-600: #4a5568;
+      --gray-800: #2d3748;
+      --text-dark: #1a202c;
+      --text-body: #3d4556;
+      --text-muted: #64748b;
       --font-display: 'Playfair Display', Georgia, serif;
       --font-body: 'DM Sans', system-ui, sans-serif;
       --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -103,15 +103,14 @@
       justify-content: space-between;
     }
     .navbar-logo {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--white);
+      display: flex;
+      align-items: center;
       text-decoration: none;
-      letter-spacing: -0.02em;
     }
-    .navbar-logo span {
-      color: var(--gold);
+    .navbar-logo img {
+      height: 44px;
+      width: auto;
+      filter: brightness(0) invert(1);
     }
     .navbar-links {
       display: flex;
@@ -141,7 +140,7 @@
     .navbar-links a:hover::after { width: 100%; }
     .navbar-cta {
       background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--navy-deep) !important;
+      color: var(--white) !important;
       padding: 10px 24px;
       border-radius: 6px;
       font-weight: 600 !important;
@@ -151,7 +150,7 @@
     .navbar-cta::after { display: none !important; }
     .navbar-cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 20px rgba(201, 162, 39, 0.4);
+      box-shadow: 0 4px 20px rgba(79, 145, 253, 0.4);
     }
     .menu-toggle {
       display: none;
@@ -184,7 +183,7 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(201, 162, 39, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(79, 145, 253, 0.08) 0%, transparent 60%),
         radial-gradient(ellipse 60% 80% at 20% 80%, rgba(22, 36, 64, 0.6) 0%, transparent 50%),
         linear-gradient(180deg, var(--navy-deep) 0%, #0d1929 100%);
     }
@@ -194,8 +193,8 @@
       inset: 0;
       z-index: 2;
       background-image:
-        linear-gradient(rgba(201, 162, 39, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201, 162, 39, 0.04) 1px, transparent 1px);
+        linear-gradient(rgba(79, 145, 253, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79, 145, 253, 0.04) 1px, transparent 1px);
       background-size: 60px 60px;
       mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 70%);
       -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 70%);
@@ -207,7 +206,7 @@
       width: 500px;
       height: 500px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(201, 162, 39, 0.06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(79, 145, 253, 0.06) 0%, transparent 70%);
       top: 10%;
       right: -5%;
       animation: orbFloat 8s ease-in-out infinite;
@@ -235,7 +234,7 @@
       width: 100%;
       max-width: 520px;
       border-radius: 20px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,162,39,0.1);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(79,145,253,0.1);
       object-fit: cover;
       aspect-ratio: 4/3;
     }
@@ -244,8 +243,8 @@
       align-items: center;
       gap: 8px;
       padding: 8px 20px;
-      background: rgba(201, 162, 39, 0.1);
-      border: 1px solid rgba(201, 162, 39, 0.2);
+      background: rgba(79, 145, 253, 0.1);
+      border: 1px solid rgba(79, 145, 253, 0.2);
       border-radius: 100px;
       color: var(--gold-light);
       font-size: 0.85rem;
@@ -300,7 +299,7 @@
       gap: 10px;
       padding: 16px 36px;
       background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--navy-deep);
+      color: var(--white);
       font-family: var(--font-body);
       font-size: 1rem;
       font-weight: 600;
@@ -313,7 +312,7 @@
     }
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(201, 162, 39, 0.35);
+      box-shadow: 0 8px 30px rgba(79, 145, 253, 0.35);
     }
     .btn-secondary {
       display: inline-flex;
@@ -399,8 +398,8 @@
     .clients-bar {
       background: var(--navy);
       padding: 40px 0;
-      border-top: 1px solid rgba(201,162,39,0.08);
-      border-bottom: 1px solid rgba(201,162,39,0.08);
+      border-top: 1px solid rgba(79,145,253,0.08);
+      border-bottom: 1px solid rgba(79,145,253,0.08);
     }
     .clients-bar-label {
       text-align: center;
@@ -446,7 +445,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 50% 50% at 50% 0%, rgba(201,162,39,0.04) 0%, transparent 70%);
+      background: radial-gradient(ellipse 50% 50% at 50% 0%, rgba(79,145,253,0.04) 0%, transparent 70%);
       pointer-events: none;
     }
     .section-tag {
@@ -516,7 +515,7 @@
     .service-card:hover {
       transform: translateY(-8px);
       background: rgba(255,255,255,0.07);
-      border-color: rgba(201,162,39,0.15);
+      border-color: rgba(79,145,253,0.15);
       box-shadow: 0 20px 60px rgba(0,0,0,0.2);
     }
     .service-card:hover::before { opacity: 1; }
@@ -526,7 +525,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, rgba(201,162,39,0.1), rgba(201,162,39,0.05));
+      background: linear-gradient(135deg, rgba(79,145,253,0.1), rgba(79,145,253,0.05));
       border-radius: 14px;
       margin-bottom: 28px;
     }
@@ -670,7 +669,7 @@
       font-size: 1.8rem;
       font-weight: 700;
       color: var(--gold);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.06), 0 0 0 4px var(--cream), 0 0 0 6px rgba(201,162,39,0.15);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06), 0 0 0 4px var(--cream), 0 0 0 6px rgba(79,145,253,0.15);
       position: relative;
       z-index: 2;
     }
@@ -706,7 +705,7 @@
     }
     .testimonial-card:hover {
       background: rgba(255,255,255,0.06);
-      border-color: rgba(201,162,39,0.15);
+      border-color: rgba(79,145,253,0.15);
       transform: translateY(-4px);
     }
     .testimonial-stars {
@@ -757,19 +756,7 @@
       margin-top: 2px;
     }
 
-    /* ========== CTA SECTION ========== */
-    .cta-section {
-      padding: 100px 0;
-      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy-light) 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 60% 60% at 30% 50%, rgba(201,162,39,0.06) 0%, transparent 70%);
-    }
+    /* ========== CTA SECTION (see also overrides above) ========== */
     .cta-inner {
       position: relative;
       z-index: 2;
@@ -859,7 +846,7 @@
     .form-group textarea:focus {
       background: var(--white);
       border-color: var(--gold);
-      box-shadow: 0 0 0 4px rgba(201,162,39,0.1);
+      box-shadow: 0 0 0 4px rgba(79,145,253,0.1);
     }
     .form-group textarea {
       resize: vertical;
@@ -874,7 +861,7 @@
       width: 100%;
       padding: 16px;
       background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--navy-deep);
+      color: var(--white);
       font-family: var(--font-body);
       font-size: 1rem;
       font-weight: 700;
@@ -887,7 +874,7 @@
     }
     .form-submit:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(201,162,39,0.3);
+      box-shadow: 0 8px 30px rgba(79,145,253,0.3);
     }
     .form-disclaimer {
       font-size: 0.78rem;
@@ -925,7 +912,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, rgba(201,162,39,0.1), rgba(201,162,39,0.05));
+      background: linear-gradient(135deg, rgba(79,145,253,0.1), rgba(79,145,253,0.05));
       border-radius: 12px;
     }
     .contact-item-icon svg {
@@ -974,7 +961,7 @@
     .footer {
       background: var(--navy-deep);
       padding: 60px 0 30px;
-      border-top: 1px solid rgba(201,162,39,0.1);
+      border-top: 1px solid rgba(79,145,253,0.1);
     }
     .footer-inner {
       display: flex;
@@ -985,12 +972,13 @@
       gap: 24px;
     }
     .footer-logo {
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--white);
+      display: inline-block;
     }
-    .footer-logo span { color: var(--gold); }
+    .footer-logo img {
+      height: 40px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
     .footer-links {
       display: flex;
       gap: 24px;
@@ -1068,6 +1056,276 @@
     .footer-agency-link:hover { color: var(--gold-light); }
     .footer-agency-link strong { font-weight: 600; }
 
+    /* ========== SECTION IMAGE LAYOUTS ========== */
+    .section-with-image {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      margin-top: 64px;
+    }
+    .section-image-wrapper {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.12);
+    }
+    .section-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .section-image-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      border: 1px solid rgba(79,145,253,0.15);
+      pointer-events: none;
+    }
+    /* Accent bar on image */
+    .section-image-accent {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
+    /* Floating badge on images */
+    .image-float-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: rgba(10, 22, 40, 0.9);
+      backdrop-filter: blur(12px);
+      color: var(--white);
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      border: 1px solid rgba(79,145,253,0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .image-float-badge .badge-number {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    /* ========== SERVICE CARD IMAGES ========== */
+    .service-card-image {
+      width: 100%;
+      height: 180px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .service-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease-out-expo);
+    }
+    .service-card:hover .service-card-image img {
+      transform: scale(1.05);
+    }
+    .service-card-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(7, 14, 26, 0.4) 100%);
+      pointer-events: none;
+    }
+
+    /* ========== CTA BACKGROUND IMAGE ========== */
+    .cta-section {
+      padding: 100px 0;
+      background: var(--navy-deep);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-bg-image {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .cta-bg-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.15;
+      filter: saturate(0.3);
+    }
+    .cta-bg-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(7, 14, 26, 0.85) 0%, rgba(17, 29, 51, 0.75) 100%);
+    }
+
+    /* ========== DIFFERENTIALS IMAGE ========== */
+    .diff-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      margin-top: 64px;
+    }
+    .diff-image-wrapper {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+    }
+    .diff-image-wrapper img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+    }
+    .diff-image-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(7,14,26,0.5) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .diff-image-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      border: 1px solid rgba(79,145,253,0.15);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .diff-grid-compact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .diff-grid-compact .diff-card {
+      text-align: left;
+      padding: 28px 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      transition: all 0.3s var(--ease-out-expo);
+    }
+    .diff-grid-compact .diff-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(79,145,253,0.15);
+      transform: translateY(-4px);
+    }
+    .diff-grid-compact .diff-card::after { display: none; }
+
+    /* ========== HOW IT WORKS IMAGE ========== */
+    .how-layout {
+      display: grid;
+      grid-template-columns: 5fr 4fr;
+      gap: 64px;
+      align-items: center;
+      margin-top: 64px;
+    }
+    .how-image-wrapper {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+    .how-image-wrapper img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+    }
+    .how-image-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      border: 1px solid rgba(79,145,253,0.1);
+      pointer-events: none;
+    }
+    .steps-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+    .step-item-h {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+      border-radius: 50%;
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06), 0 0 0 3px var(--cream), 0 0 0 5px rgba(79,145,253,0.15);
+    }
+    .step-item-h h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .step-item-h p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ========== PROBLEM SECTION IMAGE ========== */
+    .problem-layout {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 48px;
+      align-items: center;
+      margin-top: 64px;
+    }
+    .problem-image-wrapper {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+    .problem-image-wrapper img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+    }
+    .problem-image-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      border: 1px solid rgba(0,0,0,0.06);
+      pointer-events: none;
+    }
+    .problem-cards-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
     /* ========== PROBLEM SECTION ========== */
     .section-problem { overflow: hidden; }
     .problem-grid {
@@ -1086,7 +1344,7 @@
     }
     .problem-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.08), 0 0 0 1px rgba(201,162,39,0.12);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.08), 0 0 0 1px rgba(79,145,253,0.12);
     }
     .problem-icon {
       width: 56px;
@@ -1094,7 +1352,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, rgba(201,162,39,0.1), rgba(201,162,39,0.04));
+      background: linear-gradient(135deg, rgba(79,145,253,0.1), rgba(79,145,253,0.04));
       border-radius: 14px;
       margin-bottom: 24px;
     }
@@ -1146,7 +1404,7 @@
       border-right: 1px solid rgba(0,0,0,0.06);
     }
     .compare-table thead th:nth-child(3) {
-      background: linear-gradient(135deg, rgba(201,162,39,0.12), rgba(201,162,39,0.06));
+      background: linear-gradient(135deg, rgba(79,145,253,0.12), rgba(79,145,253,0.06));
       color: var(--gold-dark);
       width: 32.5%;
     }
@@ -1167,14 +1425,14 @@
     }
     .compare-table tbody td:nth-child(3) {
       color: var(--text-body);
-      background: rgba(201,162,39,0.03);
+      background: rgba(79,145,253,0.03);
     }
     .compare-table tbody tr:last-child td { border-bottom: none; }
     .compare-check { color: var(--gold-dark); font-weight: 700; }
     .compare-x { color: var(--gray-400); }
     .compare-highlight {
       display: inline-block;
-      background: rgba(201,162,39,0.1);
+      background: rgba(79,145,253,0.1);
       color: var(--gold-dark);
       font-weight: 600;
       padding: 2px 8px;
@@ -1212,7 +1470,7 @@
     }
     .compare-header-gray h3 { color: var(--gray-600); }
     .compare-header-gold {
-      background: linear-gradient(135deg, rgba(201,162,39,0.15), rgba(201,162,39,0.06));
+      background: linear-gradient(135deg, rgba(79,145,253,0.15), rgba(79,145,253,0.06));
     }
     .compare-header-gold h3 { color: var(--gold-dark); }
     .compare-card-generic {
@@ -1222,8 +1480,8 @@
     }
     .compare-card-sofisco {
       background: var(--white);
-      border: 2px solid rgba(201,162,39,0.3);
-      box-shadow: 0 8px 40px rgba(201,162,39,0.08);
+      border: 2px solid rgba(79,145,253,0.3);
+      box-shadow: 0 8px 40px rgba(79,145,253,0.08);
     }
     .compare-list {
       list-style: none;
@@ -1254,7 +1512,7 @@
     }
     .compare-highlight {
       display: inline-block;
-      background: rgba(201,162,39,0.15);
+      background: rgba(79,145,253,0.15);
       color: var(--gold-dark);
       font-weight: 600;
       padding: 4px 12px;
@@ -1335,6 +1593,16 @@
       .diff-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
       .diff-card::after { display: none; }
       .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+      .diff-layout { grid-template-columns: 1fr; gap: 40px; }
+      .diff-image-wrapper { max-width: 400px; margin: 0 auto; }
+      .diff-image-wrapper img { aspect-ratio: 4/3; }
+      .how-layout { grid-template-columns: 1fr; gap: 40px; }
+      .how-image-wrapper { max-width: 400px; margin: 0 auto; order: -1; }
+      .how-image-wrapper img { aspect-ratio: 16/10; }
+      .problem-layout { grid-template-columns: 1fr; gap: 32px; }
+      .problem-image-wrapper { max-width: 400px; margin: 0 auto; }
+      .problem-image-wrapper img { aspect-ratio: 16/10; }
+      .section-with-image { grid-template-columns: 1fr; gap: 40px; }
     }
 
     @media (max-width: 768px) {
@@ -1429,6 +1697,7 @@
       .section-tag { font-size: 0.72rem; }
 
       /* SERVICES */
+      .service-card-image { height: 140px; margin-bottom: 18px; }
       .services-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 36px; }
       .service-card {
         padding: 28px 24px;
@@ -1443,6 +1712,11 @@
       .service-card ul { margin-bottom: 18px; }
 
       /* DIFFERENTIALS */
+      .diff-layout { grid-template-columns: 1fr; gap: 32px; margin-top: 36px; }
+      .diff-image-wrapper { max-width: 100%; }
+      .diff-image-wrapper img { aspect-ratio: 16/9; }
+      .diff-grid-compact { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .diff-grid-compact .diff-card { padding: 20px 14px; }
       .diff-grid { grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px; }
       .diff-card { padding: 24px 12px; }
       .diff-number { font-size: 2rem; }
@@ -1450,6 +1724,13 @@
       .diff-desc { font-size: 0.78rem; }
 
       /* HOW IT WORKS */
+      .how-layout { grid-template-columns: 1fr; gap: 32px; margin-top: 36px; }
+      .how-image-wrapper { max-width: 100%; }
+      .how-image-wrapper img { aspect-ratio: 16/9; }
+      .steps-vertical { gap: 24px; }
+      .step-num { width: 44px; height: 44px; min-width: 44px; font-size: 1.1rem; }
+      .step-item-h h3 { font-size: 1.05rem; }
+      .step-item-h p { font-size: 0.85rem; }
       .steps-grid { grid-template-columns: 1fr; gap: 32px; margin-top: 36px; }
       .steps-grid::before { display: none; }
       .step-number { width: 64px; height: 64px; font-size: 1.4rem; margin-bottom: 18px; }
@@ -1499,6 +1780,10 @@
       .footer-legal a { font-size: 0.76rem; }
 
       /* PROBLEM SECTION */
+      .problem-layout { grid-template-columns: 1fr; gap: 24px; margin-top: 36px; }
+      .problem-image-wrapper { max-width: 100%; }
+      .problem-image-wrapper img { aspect-ratio: 16/9; }
+      .problem-cards-stack { gap: 14px; }
       .problem-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 36px; }
       .problem-card { padding: 28px 24px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
       .problem-card:hover { transform: none; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
@@ -1530,6 +1815,7 @@
       .hero-stat-number { font-size: 1.4rem; }
       .hero-stat-label { font-size: 0.68rem; }
       .diff-grid { grid-template-columns: 1fr; }
+      .diff-grid-compact { grid-template-columns: 1fr; }
       .diff-card { padding: 20px 16px; }
       .section-title { font-size: 1.4rem; }
       .cta-inner h2 { font-size: 1.3rem; }
@@ -1544,7 +1830,7 @@
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="#" class="navbar-logo">Sof<span>isco</span></a>
+      <a href="#" class="navbar-logo"><img src="logo.png" alt="Sofisco Contabilidade"></a>
       <ul class="navbar-links" id="navLinks">
         <li><a href="#servicos">O Que Fazemos</a></li>
         <li><a href="#diferenciais">Por Que a Sofisco</a></li>
@@ -1629,27 +1915,36 @@
         <h2 class="section-title section-title-dark reveal reveal-delay-1">Sua contabilidade atual é apenas<br>um <em style="color:var(--gold-dark); font-style:italic;">"cumpridor de obrigações"</em>?</h2>
         <p class="section-subtitle section-subtitle-dark reveal reveal-delay-2" style="margin:0 auto; max-width:700px;">No Brasil, empresas enfrentam um labirinto burocrático que consome tempo e recursos preciosos — indústrias, por exemplo, chegam a gastar 1.501 horas por ano apenas com tributos. Em 2026, com o novo IVA dual (CBS/IBS), o risco de pagar impostos em dobro ou ser autuado por erros de transição é real. Se seu contador não oferece planejamento estratégico agora, sua competitividade está em risco.</p>
       </div>
-      <div class="problem-grid">
-        <div class="problem-card problem-card-light reveal">
-          <div class="problem-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-dark)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <div class="problem-layout">
+        <div class="problem-image-wrapper reveal">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80&auto=format" alt="Empresário preocupado com documentos fiscais" loading="lazy">
+          <div class="image-float-badge">
+            <span class="badge-number">1.501h</span>
+            <span>gastas por ano com tributos no Brasil</span>
           </div>
-          <h3>Tempo desperdiçado com burocracia</h3>
-          <p>Sua equipe gasta horas preciosas navegando obrigações acessórias, preenchendo guias e corrigindo inconsistências — tempo que deveria ser investido em crescimento e estratégia.</p>
         </div>
-        <div class="problem-card problem-card-light reveal reveal-delay-1">
-          <div class="problem-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-dark)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        <div class="problem-cards-stack">
+          <div class="problem-card problem-card-light reveal">
+            <div class="problem-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-dark)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Tempo desperdiçado com burocracia</h3>
+            <p>Sua equipe gasta horas preciosas navegando obrigações acessórias, preenchendo guias e corrigindo inconsistências — tempo que deveria ser investido em crescimento e estratégia.</p>
           </div>
-          <h3>Impostos pagos a mais sem perceber</h3>
-          <p>Sem planejamento tributário ativo, sua empresa pode estar no regime errado ou deixando de aproveitar créditos fiscais — dinheiro que sai do caixa e não volta.</p>
-        </div>
-        <div class="problem-card problem-card-light reveal reveal-delay-2">
-          <div class="problem-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-dark)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/><line x1="1" y1="1" x2="23" y2="23" stroke="rgba(200,80,80,0.6)" stroke-width="2"/></svg>
+          <div class="problem-card problem-card-light reveal reveal-delay-1">
+            <div class="problem-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-dark)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <h3>Impostos pagos a mais sem perceber</h3>
+            <p>Sem planejamento tributário ativo, sua empresa pode estar no regime errado ou deixando de aproveitar créditos fiscais — dinheiro que sai do caixa e não volta.</p>
           </div>
-          <h3>Contador inacessível quando você precisa</h3>
-          <p>Decisões estratégicas não esperam. Quando seu contador demora dias para responder ou só aparece na época do IR, oportunidades são perdidas e riscos se acumulam.</p>
+          <div class="problem-card problem-card-light reveal reveal-delay-2">
+            <div class="problem-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-dark)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/><line x1="1" y1="1" x2="23" y2="23" stroke="rgba(200,80,80,0.6)" stroke-width="2"/></svg>
+            </div>
+            <h3>Contador inacessível quando você precisa</h3>
+            <p>Decisões estratégicas não esperam. Quando seu contador demora dias para responder ou só aparece na época do IR, oportunidades são perdidas e riscos se acumulam.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1663,6 +1958,9 @@
       <p class="section-subtitle section-subtitle-light reveal reveal-delay-2">No Brasil, o universo empresarial exige um projeto detalhado de custos tributários para gerar estabilidade e crescimento. É nisso que somos especialistas.</p>
       <div class="services-grid">
         <div class="service-card reveal">
+          <div class="service-card-image">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80&auto=format" alt="Análise de documentos fiscais para recuperação de impostos" loading="lazy">
+          </div>
           <div class="service-icon">
             <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
           </div>
@@ -1676,6 +1974,9 @@
           <a href="#contato" class="service-link">Quero saber se tenho direito <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
         <div class="service-card reveal reveal-delay-1">
+          <div class="service-card-image">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80&auto=format" alt="Planejamento tributário com gráficos e análises" loading="lazy">
+          </div>
           <div class="service-icon">
             <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
           </div>
@@ -1689,6 +1990,9 @@
           <a href="#contato" class="service-link">Quero pagar menos imposto <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
         <div class="service-card reveal reveal-delay-2">
+          <div class="service-card-image">
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80&auto=format" alt="Gestão contábil e folha de pagamento" loading="lazy">
+          </div>
           <div class="service-icon">
             <svg viewBox="0 0 24 24"><path d="M4 7V4a1 1 0 011-1h14a1 1 0 011 1v16a1 1 0 01-1 1H5a1 1 0 01-1-1v-3"/><path d="M9 7h6M9 11h6M9 15h4"/><path d="M2 12h6"/></svg>
           </div>
@@ -1752,26 +2056,31 @@
         <h2 class="section-title section-title-light reveal reveal-delay-1">Por que centenas de empresas<br>confiam na Sofisco há mais de 30 anos?</h2>
         <p class="section-subtitle section-subtitle-light reveal reveal-delay-2" style="margin:0 auto;">Desde 1996, a Sofisco atua com lisura, zelo e dedicação técnica na gestão de empresas que impulsionam a economia. Nossa filosofia de trabalho vai além dos números — tratamos cada cliente como um parceiro estratégico, garantindo que sua operação esteja blindada.</p>
       </div>
-      <div class="diff-grid">
-        <div class="diff-card reveal">
-          <div class="diff-number">30+</div>
-          <div class="diff-label">Anos de Atuação</div>
-          <div class="diff-desc">Desde 1996 com dedicação técnica e lisura na gestão contábil e tributária</div>
+      <div class="diff-layout">
+        <div class="diff-image-wrapper reveal">
+          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&q=80&auto=format" alt="Equipe Sofisco trabalhando para seus clientes" loading="lazy">
         </div>
-        <div class="diff-card reveal reveal-delay-1">
-          <div class="diff-number">12+</div>
-          <div class="diff-label">Serviços Especializados</div>
-          <div class="diff-desc">De abertura de empresa até recuperação de impostos e auditoria</div>
-        </div>
-        <div class="diff-card reveal reveal-delay-2">
-          <div class="diff-number">0</div>
-          <div class="diff-label">Surpresas Fiscais</div>
-          <div class="diff-desc">Planejamento preventivo — você nunca é pego de surpresa pela Receita</div>
-        </div>
-        <div class="diff-card reveal reveal-delay-3">
-          <div class="diff-number">24h</div>
-          <div class="diff-label">Portal Online</div>
-          <div class="diff-desc">Acesse documentos, certidões e relatórios pelo Contábil Data quando quiser</div>
+        <div class="diff-grid-compact">
+          <div class="diff-card reveal">
+            <div class="diff-number">30+</div>
+            <div class="diff-label">Anos de Atuação</div>
+            <div class="diff-desc">Desde 1996 com dedicação técnica e lisura na gestão contábil e tributária</div>
+          </div>
+          <div class="diff-card reveal reveal-delay-1">
+            <div class="diff-number">12+</div>
+            <div class="diff-label">Serviços Especializados</div>
+            <div class="diff-desc">De abertura de empresa até recuperação de impostos e auditoria</div>
+          </div>
+          <div class="diff-card reveal reveal-delay-2">
+            <div class="diff-number">0</div>
+            <div class="diff-label">Surpresas Fiscais</div>
+            <div class="diff-desc">Planejamento preventivo — você nunca é pego de surpresa pela Receita</div>
+          </div>
+          <div class="diff-card reveal reveal-delay-3">
+            <div class="diff-number">24h</div>
+            <div class="diff-label">Portal Online</div>
+            <div class="diff-desc">Acesse documentos, certidões e relatórios pelo Contábil Data quando quiser</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1785,21 +2094,32 @@
         <h2 class="section-title section-title-dark reveal reveal-delay-1">Trocar de contador<br>é mais fácil do que você pensa</h2>
         <p class="section-subtitle section-subtitle-dark reveal reveal-delay-2" style="margin:0 auto;">Nós cuidamos de toda a transição. Você não precisa fazer nada além de decidir.</p>
       </div>
-      <div class="steps-grid">
-        <div class="step-item reveal">
-          <div class="step-number">1</div>
-          <h3>Diagnóstico Gratuito</h3>
-          <p>Analisamos sua situação fiscal atual e identificamos se você está no regime certo, se tem créditos a recuperar e onde pode economizar.</p>
+      <div class="how-layout">
+        <div class="steps-vertical">
+          <div class="step-item-h reveal">
+            <div class="step-num">1</div>
+            <div>
+              <h3>Diagnóstico Gratuito</h3>
+              <p>Analisamos sua situação fiscal atual e identificamos se você está no regime certo, se tem créditos a recuperar e onde pode economizar.</p>
+            </div>
+          </div>
+          <div class="step-item-h reveal reveal-delay-1">
+            <div class="step-num">2</div>
+            <div>
+              <h3>Proposta Personalizada</h3>
+              <p>Montamos um plano sob medida com tudo que sua empresa precisa — sem pacote genérico, sem serviço que você não vai usar.</p>
+            </div>
+          </div>
+          <div class="step-item-h reveal reveal-delay-2">
+            <div class="step-num">3</div>
+            <div>
+              <h3>Migração Sem Dor</h3>
+              <p>Fazemos toda a transição do seu antigo escritório. Você não perde um documento, não atrasa uma obrigação. Zero estresse.</p>
+            </div>
+          </div>
         </div>
-        <div class="step-item reveal reveal-delay-1">
-          <div class="step-number">2</div>
-          <h3>Proposta Personalizada</h3>
-          <p>Montamos um plano sob medida com tudo que sua empresa precisa — sem pacote genérico, sem serviço que você não vai usar.</p>
-        </div>
-        <div class="step-item reveal reveal-delay-2">
-          <div class="step-number">3</div>
-          <h3>Migração Sem Dor</h3>
-          <p>Fazemos toda a transição do seu antigo escritório. Você não perde um documento, não atrasa uma obrigação. Zero estresse.</p>
+        <div class="how-image-wrapper reveal reveal-delay-1">
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80&auto=format" alt="Reunião de consultoria contábil personalizada" loading="lazy">
         </div>
       </div>
       <div style="text-align:center; margin-top:56px;" class="reveal">
@@ -1865,6 +2185,9 @@
 
   <!-- CTA SECTION -->
   <section class="cta-section">
+    <div class="cta-bg-image">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=70&auto=format" alt="" loading="lazy">
+    </div>
     <div class="container">
       <div class="cta-inner reveal">
         <h2>Descubra quanto sua empresa <em>deixou de economizar</em> no último ano</h2>
@@ -1980,7 +2303,7 @@
     <div class="container">
       <div class="footer-inner">
         <div>
-          <div class="footer-logo">Sof<span>isco</span></div>
+          <div class="footer-logo"><img src="logo.png" alt="Sofisco Contabilidade"></div>
           <div class="footer-tagline">Consultoria Contábil e Tributária</div>
         </div>
         <ul class="footer-links">

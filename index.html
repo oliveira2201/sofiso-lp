@@ -116,14 +116,14 @@
       display: flex;
       align-items: center;
       text-decoration: none;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
     }
-    .navbar-logo img {
-      height: 64px;
-      width: auto;
-      background: var(--white);
-      border-radius: 8px;
-      padding: 6px 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    .navbar-logo:hover {
+      color: var(--white);
     }
     .navbar-links {
       display: flex;
@@ -131,7 +131,7 @@
       list-style: none;
     }
     .navbar-links a {
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.85);
       text-decoration: none;
       font-size: 0.95rem;
       font-weight: 500;
@@ -245,11 +245,12 @@
     }
     .hero-image img {
       width: 100%;
-      max-width: 520px;
-      border-radius: 20px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(79,145,253,0.1);
-      object-fit: cover;
-      aspect-ratio: 4/3;
+      max-width: 360px;
+      border-radius: 24px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.08);
+      object-fit: contain;
+      background: var(--white);
+      padding: 32px;
     }
     .hero-badge {
       display: inline-flex;
@@ -434,14 +435,14 @@
       font-family: var(--font-body);
       font-size: 1.05rem;
       font-weight: 600;
-      color: rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.45);
       letter-spacing: 0.08em;
       text-transform: uppercase;
       white-space: nowrap;
       transition: color 0.3s;
     }
     .client-logo:hover {
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.7);
     }
 
     /* ========== SECTION COMMON ========== */
@@ -496,7 +497,7 @@
       font-weight: 300;
     }
     .section-subtitle-dark { color: var(--text-muted); }
-    .section-subtitle-light { color: rgba(255,255,255,0.5); }
+    .section-subtitle-light { color: rgba(255,255,255,0.75); }
 
     /* ========== SERVICES ========== */
     .services-grid {
@@ -508,9 +509,9 @@
     .service-card {
       position: relative;
       padding: 48px 36px;
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.08);
       border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
       transition: all 0.4s var(--ease-out-expo);
       overflow: hidden;
     }
@@ -521,13 +522,13 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      background: linear-gradient(90deg, var(--accent-light), var(--accent));
       opacity: 0;
       transition: opacity 0.4s;
     }
     .service-card:hover {
       transform: translateY(-8px);
-      background: rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.12);
       border-color: rgba(79,145,253,0.15);
       box-shadow: 0 20px 60px rgba(0,0,0,0.2);
     }
@@ -561,7 +562,7 @@
     .service-card p {
       font-size: 0.95rem;
       line-height: 1.7;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.8);
       margin-bottom: 24px;
     }
     .service-card ul {
@@ -572,7 +573,7 @@
       position: relative;
       padding-left: 20px;
       font-size: 0.9rem;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.75);
       margin-bottom: 10px;
       line-height: 1.5;
     }
@@ -643,7 +644,7 @@
     }
     .diff-desc {
       font-size: 0.85rem;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.7);
       line-height: 1.6;
     }
 
@@ -710,14 +711,14 @@
     }
     .testimonial-card {
       padding: 40px 32px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: 16px;
       backdrop-filter: blur(10px);
       transition: all 0.4s var(--ease-out-expo);
     }
     .testimonial-card:hover {
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.12);
       border-color: rgba(79,145,253,0.15);
       transform: translateY(-4px);
     }
@@ -734,7 +735,7 @@
     .testimonial-text {
       font-size: 1rem;
       line-height: 1.8;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.9);
       font-style: italic;
       margin-bottom: 24px;
       font-family: var(--font-display);
@@ -765,7 +766,7 @@
     }
     .testimonial-role {
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.6);
       margin-top: 2px;
     }
 
@@ -973,44 +974,10 @@
     /* ========== FOOTER ========== */
     .footer {
       background: var(--navy-deep);
-      padding: 60px 0 30px;
+      padding: 28px 0 20px;
       border-top: 1px solid rgba(79,145,253,0.1);
     }
     .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-      gap: 24px;
-    }
-    .footer-logo {
-      display: inline-block;
-    }
-    .footer-logo img {
-      height: 58px;
-      width: auto;
-      background: var(--white);
-      border-radius: 8px;
-      padding: 6px 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-      flex-wrap: wrap;
-    }
-    .footer-links a {
-      color: rgba(255,255,255,0.4);
-      text-decoration: none;
-      font-size: 0.88rem;
-      transition: color 0.3s;
-    }
-    .footer-links a:hover { color: var(--white); }
-    .footer-bottom {
-      padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.05);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -1019,58 +986,112 @@
     }
     .footer-copy {
       font-size: 0.82rem;
-      color: rgba(255,255,255,0.25);
+      color: #fff;
     }
     .footer-badges {
       display: flex;
-      gap: 16px;
+      gap: 12px;
       align-items: center;
     }
     .footer-badge {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.25);
-      padding: 6px 14px;
-      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.72rem;
+      color: #fff;
+      padding: 4px 12px;
+      border: 1px solid rgba(255,255,255,0.4);
       border-radius: 100px;
       letter-spacing: 0.05em;
     }
-    .footer-tagline {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.35);
-      margin-top: 4px;
-      letter-spacing: 0.04em;
-    }
-    .footer-legal {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      justify-content: center;
-      padding: 16px 0;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      margin-top: 8px;
-    }
-    .footer-legal a {
-      color: rgba(255,255,255,0.35);
-      text-decoration: none;
-      font-size: 0.82rem;
-      transition: color 0.3s;
-    }
-    .footer-legal a:hover { color: var(--gold-light); }
-    .footer-legal span { color: rgba(255,255,255,0.15); font-size: 0.75rem; }
     .footer-agency {
       text-align: center;
-      padding-top: 20px;
-      margin-top: 16px;
+      padding-top: 14px;
+      margin-top: 14px;
       border-top: 1px solid rgba(255,255,255,0.04);
     }
     .footer-agency-link {
-      color: rgba(255,255,255,0.25);
+      color: #fff;
       text-decoration: none;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       transition: color 0.3s;
     }
     .footer-agency-link:hover { color: var(--gold-light); }
     .footer-agency-link strong { font-weight: 600; }
+    .footer-legal {
+      display: flex;
+      justify-content: center;
+      padding-top: 10px;
+    }
+    .footer-legal a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.75rem;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+    .footer-legal a:hover { color: rgba(255,255,255,0.5); }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
+      background: var(--white);
+      border-radius: 16px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 40px 36px;
+      position: relative;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--gray-400);
+      line-height: 1;
+      padding: 4px;
+    }
+    .modal-close:hover { color: var(--text-dark); }
+    .modal-box h2 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+    }
+    .modal-box h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin: 20px 0 8px;
+    }
+    .modal-box p, .modal-box li {
+      font-size: 0.88rem;
+      color: var(--text-body);
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+    .modal-box ul { padding-left: 20px; margin-bottom: 12px; }
+    .modal-box .modal-update {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--gray-200);
+    }
 
     /* ========== SECTION IMAGE LAYOUTS ========== */
     .section-with-image {
@@ -1230,8 +1251,8 @@
     .diff-grid-compact .diff-card {
       text-align: left;
       padding: 28px 20px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: 14px;
       transition: all 0.3s var(--ease-out-expo);
     }
@@ -1653,7 +1674,7 @@
       .hero { min-height: auto; display: block; }
       .hero-content { padding: 100px 0 50px !important; grid-template-columns: 1fr !important; gap: 32px !important; }
       .hero-image { justify-content: center; order: -1; }
-      .hero-image img { max-width: 100%; border-radius: 16px; aspect-ratio: 16/10; }
+      .hero-image img { max-width: 220px; border-radius: 18px; padding: 24px; }
       .hero-badge {
         font-size: 0.72rem;
         padding: 6px 12px;
@@ -1784,16 +1805,10 @@
       .contact-map { height: 180px; }
 
       /* FOOTER */
-      .footer { padding: 40px 0 24px; }
-      .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 16px; }
-      .footer-links { justify-content: center; gap: 16px; }
-      .footer-links a { font-size: 0.82rem; }
-      .footer-bottom { flex-direction: column; text-align: center; gap: 12px; }
+      .footer { padding: 24px 0 16px; }
+      .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 10px; }
       .footer-badges { justify-content: center; }
-      .footer-badge { font-size: 0.7rem; padding: 5px 10px; }
-      .footer-tagline { text-align: center; }
-      .footer-legal { gap: 8px; }
-      .footer-legal a { font-size: 0.76rem; }
+      .footer-badge { font-size: 0.68rem; padding: 4px 10px; }
 
       /* PROBLEM SECTION */
       .problem-layout { grid-template-columns: 1fr; gap: 24px; margin-top: 36px; }
@@ -1850,7 +1865,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="#" class="navbar-logo"><img src="sofisco-contabilidade.png" alt="Sofisco Contabilidade"></a>
+      <a href="#" class="navbar-logo">Sofisco</a>
       <ul class="navbar-links" id="navLinks">
         <li><a href="#servicos">O Que Fazemos</a></li>
         <li><a href="#diferenciais">Por Que a Sofisco</a></li>
@@ -1900,7 +1915,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="hero-image reveal reveal-delay-2">
-        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&auto=format" alt="Equipe Sofisco em reunião estratégica" loading="eager">
+        <img src="sofisco-contabilidade.png" alt="Sofisco Contabilidade — Logo" loading="eager">
       </div>
     </div>
     <div class="scroll-indicator">
@@ -2274,6 +2289,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <label for="message">Mensagem</label>
             <textarea id="message" name="message" placeholder="Conte um pouco sobre o que precisa..."></textarea>
           </div>
+          <label style="display:flex; align-items:flex-start; gap:8px; margin-bottom:16px; font-size:0.82rem; color:var(--gray-600); cursor:pointer; line-height:1.4;">
+            <input type="checkbox" name="lgpd_consent" required style="margin-top:3px; flex-shrink:0;">
+            Li e concordo com a <a onclick="document.getElementById('privacyModal').classList.add('active')" style="color:var(--accent); cursor:pointer; text-decoration:underline;">Política de Privacidade</a>.
+          </label>
           <button type="submit" class="form-submit">Quero Meu Diagnóstico Gratuito</button>
           <p class="form-disclaimer">100% gratuito e sem compromisso. Seus dados estão seguros conosco.</p>
         </form>
@@ -2323,40 +2342,80 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
-        <div>
-          <div class="footer-logo"><img src="sofisco-contabilidade.png" alt="Sofisco Contabilidade"></div>
-          <div class="footer-tagline">Consultoria Contábil e Tributária</div>
-        </div>
-        <ul class="footer-links">
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#diferenciais">Diferenciais</a></li>
-          <li><a href="#como-funciona">Como Funciona</a></li>
-          <li><a href="#depoimentos">Situações Comuns</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </div>
-      <div class="footer-legal">
-        <a href="#">Política de Privacidade</a>
-        <span>|</span>
-        <a href="#">Termos de Uso</a>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-copy">&copy; 2026 Sofisco Contabilidade. Todos os direitos reservados.</div>
+        <div class="footer-copy">&copy; 2026 Sofisco Contabilidade — Consultoria Contábil e Tributária</div>
         <div class="footer-badges">
           <span class="footer-badge">CRC-SP</span>
           <span class="footer-badge">CFC</span>
         </div>
       </div>
+      <div class="footer-legal">
+        <a onclick="document.getElementById('privacyModal').classList.add('active')">Política de Privacidade</a>
+      </div>
       <div class="footer-agency">
         <a href="https://agenciacasedesucesso.com.br/?utm_source=Clientes&utm_campaign=Sofisco&utm_medium=Rodap%C3%A9&utm_term=" target="_blank" rel="noopener" class="footer-agency-link">
-          Desenvolvido por <strong>Agência Case de Sucesso</strong>
+          Desenvolvido por <img src="logo-agencia.png" alt="Agência Case de Sucesso" style="height:20px; width:auto; vertical-align:middle; margin-left:6px;">
         </a>
       </div>
     </div>
   </footer>
 
+  <!-- MODAL POLÍTICA DE PRIVACIDADE -->
+  <div class="modal-overlay" id="privacyModal" onclick="if(event.target===this)this.classList.remove('active')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="document.getElementById('privacyModal').classList.remove('active')">&times;</button>
+      <h2>Política de Privacidade</h2>
+      <p>A <strong>Sofisco Contabilidade</strong> ("Sofisco"), inscrita no CNPJ sob o n.º [CNPJ], com sede em São Paulo/SP, é a controladora dos dados pessoais coletados neste site, nos termos da Lei Geral de Proteção de Dados (Lei n.º 13.709/2018 — LGPD).</p>
+
+      <h3>1. Dados coletados</h3>
+      <p>Ao preencher o formulário de contato, coletamos:</p>
+      <ul>
+        <li>Nome completo</li>
+        <li>Nome da empresa</li>
+        <li>E-mail</li>
+        <li>Telefone / WhatsApp</li>
+        <li>Regime tributário atual</li>
+        <li>Mensagem (opcional)</li>
+      </ul>
+
+      <h3>2. Finalidade do tratamento</h3>
+      <p>Os dados são utilizados exclusivamente para:</p>
+      <ul>
+        <li>Realizar o diagnóstico tributário gratuito solicitado</li>
+        <li>Entrar em contato para apresentar a proposta de serviços</li>
+        <li>Enviar comunicações relacionadas aos serviços da Sofisco (somente com seu consentimento)</li>
+      </ul>
+
+      <h3>3. Base legal</h3>
+      <p>O tratamento dos dados pessoais tem como base legal o <strong>consentimento do titular</strong> (art. 7º, I, LGPD), fornecido ao preencher e enviar o formulário, e a <strong>execução de contrato ou procedimentos preliminares</strong> (art. 7º, V, LGPD).</p>
+
+      <h3>4. Compartilhamento</h3>
+      <p>Seus dados <strong>não são vendidos, alugados ou compartilhados</strong> com terceiros para fins de marketing. Podem ser compartilhados apenas com ferramentas de gestão interna (CRM, e-mail) necessárias à prestação do serviço, sempre sob obrigação de sigilo.</p>
+
+      <h3>5. Retenção</h3>
+      <p>Os dados são mantidos pelo período necessário ao atendimento da finalidade para a qual foram coletados. Após esse período, são eliminados de forma segura, salvo obrigação legal de retenção.</p>
+
+      <h3>6. Seus direitos</h3>
+      <p>Conforme a LGPD, você pode, a qualquer momento, solicitar:</p>
+      <ul>
+        <li>Confirmação da existência de tratamento dos seus dados</li>
+        <li>Acesso, correção ou exclusão dos dados</li>
+        <li>Revogação do consentimento</li>
+        <li>Portabilidade dos dados</li>
+      </ul>
+      <p>Para exercer seus direitos, entre em contato pelo e-mail <strong>sofisco@sofisco.com.br</strong> ou pelo telefone <strong>(11) 3652-5424</strong>.</p>
+
+      <h3>7. Cookies e analytics</h3>
+      <p>Este site utiliza o Google Tag Manager e o Google Analytics para fins de análise de desempenho e otimização de campanhas. Esses serviços podem utilizar cookies. Nenhum dado pessoal identificável é enviado para plataformas de analytics.</p>
+
+      <h3>8. Segurança</h3>
+      <p>Adotamos medidas técnicas e administrativas adequadas para proteger os dados pessoais contra acessos não autorizados, perda ou destruição.</p>
+
+      <p class="modal-update">Última atualização: abril de 2026</p>
+    </div>
+  </div>
+
   <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/551136525424?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Sofisco." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" onclick="dataLayer.push({event:'whatsapp_click',click_location:'floating_button'})"
+  <a href="https://wa.me/551136525424?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Sofisco." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" onclick="dataLayer.push({event:'whatsapp_click',click_location:'floating_button'})">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374A9.86 9.86 0 012.07 12.07C2.07 6.547 6.547 2.07 12.07 2.07c2.67 0 5.18 1.04 7.07 2.929a9.93 9.93 0 012.928 7.072c-.003 5.522-4.48 10.001-10.017 10.001zm8.53-18.536A11.9 11.9 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.88 11.88 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 00-3.48-8.413z"/></svg>
     <span class="whatsapp-tooltip">Fale conosco!</span>
   </a>

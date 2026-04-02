@@ -2428,10 +2428,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       e.preventDefault();
       const form = e.target;
       const formData = new FormData(form);
+      var userPhone = (formData.get('phone') || '').replace(/\D/g, '');
+      if (userPhone.length === 11) userPhone = '55' + userPhone;
+      if (userPhone.length === 10) userPhone = '55' + userPhone;
       dataLayer.push({
         event: 'form_submit',
         form_name: 'diagnostico_gratuito',
-        form_service: formData.get('servico') || ''
+        form_regime: formData.get('regime') || '',
+        user_data: {
+          email: (formData.get('email') || '').trim().toLowerCase(),
+          phone_number: '+' + userPhone,
+          address: { country: 'BR' }
+        }
       });
       const btn = form.querySelector('.form-submit');
       const originalText = btn.textContent;

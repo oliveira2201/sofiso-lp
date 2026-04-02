@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia GTM — Sofisco Contabilidade</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f4f5f7;
+      color: #1a1a2e;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* Header */
+    .doc-header {
+      background: linear-gradient(135deg, #1a2744 0%, #1e3a5f 100%);
+      border-radius: 16px;
+      padding: 48px 40px;
+      margin-bottom: 32px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .doc-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(79,145,253,0.2) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .doc-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      position: relative;
+    }
+    .doc-header .site {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      position: relative;
+    }
+    .doc-header .badge {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 6px 14px;
+      background: rgba(79,145,253,0.2);
+      border: 1px solid rgba(79,145,253,0.3);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #7db5ff;
+      position: relative;
+    }
+
+    /* Sections */
+    .section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 20px;
+      border: 1px solid #e8e8ee;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: #4f91fd;
+      color: #fff;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      color: #1a1a2e;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 24px 0 12px;
+      color: #1a1a2e;
+    }
+
+    h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 20px 0 10px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 12px;
+    }
+
+    /* Code */
+    code {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      background: #f0f1f5;
+      padding: 2px 7px;
+      border-radius: 5px;
+      font-size: 12.5px;
+      color: #d63384;
+    }
+
+    pre {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 16px 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.5;
+      margin: 12px 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+      color: inherit;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 13px;
+    }
+    thead th {
+      background: #f7f7fa;
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 600;
+      color: #555;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      border-bottom: 2px solid #e8e8ee;
+    }
+    tbody td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0f0f5;
+      color: #333;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: #fafafa; }
+
+    /* Event cards */
+    .event-card {
+      background: #fafbfd;
+      border: 1px solid #e8e8ee;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 16px 0;
+      border-left: 3px solid #4f91fd;
+    }
+    .event-card .event-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 15px;
+      font-weight: 600;
+      color: #4f91fd;
+      margin-bottom: 4px;
+    }
+    .event-card .event-trigger {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 12px;
+    }
+    .event-card .event-use {
+      font-size: 12.5px;
+      color: #888;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+    }
+
+    /* Tag items */
+    .tag-item {
+      padding: 14px 0;
+      border-bottom: 1px solid #f0f0f5;
+    }
+    .tag-item:last-child { border-bottom: none; }
+    .tag-item .tag-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: #1a1a2e;
+      margin-bottom: 4px;
+    }
+    .tag-item .tag-detail {
+      font-size: 13px;
+      color: #666;
+      padding-left: 16px;
+    }
+    .tag-item .tag-detail span {
+      color: #999;
+      margin-right: 4px;
+    }
+
+    /* Lists */
+    ul, ol {
+      padding-left: 20px;
+      margin: 8px 0;
+    }
+    li {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 6px;
+    }
+
+    /* Checklist */
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f5f5f8;
+      font-size: 13.5px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist .check-box {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* IDs table */
+    .ids-table td:first-child { font-weight: 600; }
+    .ids-table input {
+      border: none;
+      border-bottom: 2px solid #4f91fd;
+      background: transparent;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      padding: 4px 0;
+      width: 180px;
+      outline: none;
+      color: #1a1a2e;
+    }
+
+    /* Callout */
+    .callout {
+      background: #f0f4ff;
+      border: 1px solid #b8ccff;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 13px;
+      color: #1a3399;
+      margin: 12px 0;
+    }
+
+    .callout-red {
+      background: #fff0f0;
+      border: 1px solid #ffc8c8;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 13px;
+      color: #991a1a;
+    }
+
+    .callout-green {
+      background: #f0fff4;
+      border: 1px solid #b8ffd0;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 13px;
+      color: #1a6633;
+    }
+
+    .callout-yellow {
+      background: #fffbe6;
+      border: 1px solid #ffe082;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 13px;
+      color: #7a6200;
+    }
+
+    /* Platform badges */
+    .platform-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-right: 6px;
+    }
+    .platform-ga4 { background: #e8f5e9; color: #2e7d32; }
+    .platform-ads { background: #e3f2fd; color: #1565c0; }
+    .platform-meta { background: #ede7f6; color: #5e35b1; }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: #e8e8ee;
+      margin: 24px 0;
+    }
+
+    /* Footer */
+    .doc-footer {
+      text-align: center;
+      padding: 32px 0 0;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    /* Print */
+    @media print {
+      body { background: #fff; }
+      .container { padding: 0; }
+      .doc-header { break-after: avoid; }
+      .section { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="doc-header">
+      <h1>Guia de Implementacao — Google Tag Manager</h1>
+      <div class="site">Sofisco Contabilidade — Landing Page</div>
+      <div class="badge">GTM-NCGC42FM</div>
+    </div>
+
+    <!-- 1. Eventos do DataLayer -->
+    <div class="section">
+      <h2><span class="section-number">1</span> Eventos do DataLayer disponiveis</h2>
+      <p>O site dispara os seguintes eventos customizados via <code>window.dataLayer.push()</code>:</p>
+
+      <!-- form_submit -->
+      <div class="event-card">
+        <div class="event-name">form_submit</div>
+        <div class="event-trigger">Formulario de diagnostico gratuito enviado com sucesso</div>
+        <table>
+          <thead>
+            <tr><th>Variavel</th><th>Tipo</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>event</code></td><td>string</td><td><code>form_submit</code></td></tr>
+            <tr><td><code>form_name</code></td><td>string</td><td><code>diagnostico_gratuito</code></td></tr>
+            <tr><td><code>form_regime</code></td><td>string</td><td><code>simples</code>, <code>presumido</code>, <code>real</code>, <code>mei</code>, <code>nao-sei</code>, <code>abertura</code>, <code>trocar</code></td></tr>
+          </tbody>
+        </table>
+
+        <p style="margin: 14px 0 6px; font-size: 13px; font-weight: 600; color: #555;">Dados do usuario para Enhanced Conversions (dentro do mesmo push):</p>
+        <table>
+          <thead>
+            <tr><th>Variavel</th><th>Tipo</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>user_data.email</code></td><td>string</td><td><code>joao@empresa.com</code></td></tr>
+            <tr><td><code>user_data.phone_number</code></td><td>string</td><td><code>+5511999998888</code></td></tr>
+            <tr><td><code>user_data.address.country</code></td><td>string</td><td><code>BR</code></td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout-red" style="margin-top: 12px;">
+          <strong>Os dados de usuario NAO devem ser enviados como parametros de evento no GA4</strong> — viola politica de PII do Google. Eles existem no dataLayer exclusivamente para Google Ads Enhanced Conversions e Meta Advanced Matching.
+        </div>
+
+        <div class="event-use">
+          <span class="platform-badge platform-ga4">GA4</span>
+          <span class="platform-badge platform-ads">Google Ads</span>
+          <span class="platform-badge platform-meta">Meta Pixel</span>
+          Conversao principal — Lead direto.
+        </div>
+      </div>
+
+      <!-- whatsapp_click -->
+      <div class="event-card">
+        <div class="event-name">whatsapp_click</div>
+        <div class="event-trigger">Clique em qualquer link/botao de WhatsApp</div>
+        <table>
+          <thead>
+            <tr><th>Variavel</th><th>Tipo</th><th>Valores possiveis</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>event</code></td><td>string</td><td><code>whatsapp_click</code></td></tr>
+            <tr><td><code>click_location</code></td><td>string</td><td><code>hero</code>, <code>cta_section</code>, <code>floating_button</code></td></tr>
+          </tbody>
+        </table>
+        <div class="event-use">
+          <span class="platform-badge platform-ga4">GA4</span>
+          <span class="platform-badge platform-ads">Google Ads</span>
+          <span class="platform-badge platform-meta">Meta Pixel</span>
+          Conversao secundaria — Lead via WhatsApp.
+        </div>
+      </div>
+
+      <!-- cta_click -->
+      <div class="event-card">
+        <div class="event-name">cta_click</div>
+        <div class="event-trigger">Clique nos botoes "Quero Meu Diagnostico Gratuito" (scroll ate o formulario)</div>
+        <table>
+          <thead>
+            <tr><th>Variavel</th><th>Tipo</th><th>Valores possiveis</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>event</code></td><td>string</td><td><code>cta_click</code></td></tr>
+            <tr><td><code>click_location</code></td><td>string</td><td><code>hero</code>, <code>testimonials</code>, <code>cta_section</code></td></tr>
+          </tbody>
+        </table>
+        <div class="event-use">
+          Micro-conversao. Medir intencao de contato. Util para remarketing e otimizacao de campanhas.
+        </div>
+      </div>
+
+      <!-- phone_click -->
+      <div class="event-card">
+        <div class="event-name">phone_click</div>
+        <div class="event-trigger">Clique nos numeros de telefone no rodape</div>
+        <table>
+          <thead>
+            <tr><th>Variavel</th><th>Tipo</th><th>Valores possiveis</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>event</code></td><td>string</td><td><code>phone_click</code></td></tr>
+            <tr><td><code>phone_number</code></td><td>string</td><td><code>1136525424</code>, <code>1136840804</code>, <code>1136525410</code></td></tr>
+          </tbody>
+        </table>
+        <div class="event-use">
+          <span class="platform-badge platform-ga4">GA4</span>
+          <span class="platform-badge platform-ads">Google Ads</span>
+          Conversao secundaria — Lead via telefone.
+        </div>
+      </div>
+
+      <!-- email_click -->
+      <div class="event-card">
+        <div class="event-name">email_click</div>
+        <div class="event-trigger">Clique no link de email no rodape</div>
+        <table>
+          <thead>
+            <tr><th>Variavel</th><th>Tipo</th><th>Valor</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>event</code></td><td>string</td><td><code>email_click</code></td></tr>
+          </tbody>
+        </table>
+        <div class="event-use">
+          Engajamento. Baixa prioridade.
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Configuracao no GTM -->
+    <div class="section">
+      <h2><span class="section-number">2</span> Configuracao no GTM</h2>
+
+      <!-- Variaveis -->
+      <h3>2.1 Variaveis do DataLayer</h3>
+      <p>Criar em <strong>Variables &gt; User-Defined Variables &gt; New &gt; Data Layer Variable</strong>:</p>
+      <table>
+        <thead>
+          <tr><th>Nome da variavel</th><th>Data Layer Variable Name</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>dlv - click_location</td><td><code>click_location</code></td></tr>
+          <tr><td>dlv - phone_number</td><td><code>phone_number</code></td></tr>
+          <tr><td>dlv - form_name</td><td><code>form_name</code></td></tr>
+          <tr><td>dlv - form_regime</td><td><code>form_regime</code></td></tr>
+          <tr><td>dlv - user_data.email</td><td><code>user_data.email</code></td></tr>
+          <tr><td>dlv - user_data.phone_number</td><td><code>user_data.phone_number</code></td></tr>
+        </tbody>
+      </table>
+
+      <div class="divider"></div>
+
+      <!-- Triggers -->
+      <h3>2.2 Triggers</h3>
+      <table>
+        <thead>
+          <tr><th>Nome do Trigger</th><th>Tipo</th><th>Condicao</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>CE - form_submit</td><td>Custom Event</td><td>Event name = <code>form_submit</code></td></tr>
+          <tr><td>CE - whatsapp_click</td><td>Custom Event</td><td>Event name = <code>whatsapp_click</code></td></tr>
+          <tr><td>CE - cta_click</td><td>Custom Event</td><td>Event name = <code>cta_click</code></td></tr>
+          <tr><td>CE - phone_click</td><td>Custom Event</td><td>Event name = <code>phone_click</code></td></tr>
+          <tr><td>CE - email_click</td><td>Custom Event</td><td>Event name = <code>email_click</code></td></tr>
+        </tbody>
+      </table>
+
+      <div class="divider"></div>
+
+      <!-- Tags -->
+      <h3>2.3 Tags</h3>
+
+      <h4><span class="platform-badge platform-ga4">GA4</span> Google Analytics 4</h4>
+
+      <div class="tag-item">
+        <div class="tag-name">Tag: GA4 - Configuration</div>
+        <div class="tag-detail"><span>Tipo:</span> Google Tag (gtag)</div>
+        <div class="tag-detail"><span>Tag ID:</span> <code>G-XXXXXXXXXX</code></div>
+        <div class="tag-detail"><span>Trigger:</span> All Pages</div>
+      </div>
+
+      <div class="tag-item">
+        <div class="tag-name">Tag: GA4 - form_submit</div>
+        <div class="tag-detail"><span>Tipo:</span> GA4 Event</div>
+        <div class="tag-detail"><span>Event Name:</span> <code>generate_lead</code></div>
+        <div class="tag-detail"><span>Event Parameters:</span></div>
+        <div class="tag-detail" style="padding-left: 32px"><code>form_name</code> = <code>{{dlv - form_name}}</code></div>
+        <div class="tag-detail" style="padding-left: 32px"><code>form_regime</code> = <code>{{dlv - form_regime}}</code></div>
+        <div class="tag-detail"><span>Trigger:</span> CE - form_submit</div>
+        <div class="callout-red" style="margin: 8px 0 0 16px; padding: 8px 14px; font-size: 12px;">
+          NAO adicionar email ou telefone como parametros — viola politica de PII do Google
+        </div>
+      </div>
+
+      <div class="tag-item">
+        <div class="tag-name">Tag: GA4 - whatsapp_click</div>
+        <div class="tag-detail"><span>Tipo:</span> GA4 Event</div>
+        <div class="tag-detail"><span>Event Name:</span> <code>whatsapp_click</code></div>
+        <div class="tag-detail"><span>Event Parameters:</span></div>
+        <div class="tag-detail" style="padding-left: 32px"><code>click_location</code> = <code>{{dlv - click_location}}</code></div>
+        <div class="tag-detail"><span>Trigger:</span> CE - whatsapp_click</div>
+      </div>
+
+      <div class="tag-item">
+        <div class="tag-name">Tag: GA4 - cta_click</div>
+        <div class="tag-detail"><span>Tipo:</span> GA4 Event</div>
+        <div class="tag-detail"><span>Event Name:</span> <code>cta_click</code></div>
+        <div class="tag-detail"><span>Event Parameters:</span></div>
+        <div class="tag-detail" style="padding-left: 32px"><code>click_location</code> = <code>{{dlv - click_location}}</code></div>
+        <div class="tag-detail"><span>Trigger:</span> CE - cta_click</div>
+      </div>
+
+      <div class="tag-item">
+        <div class="tag-name">Tag: GA4 - phone_click</div>
+        <div class="tag-detail"><span>Tipo:</span> GA4 Event</div>
+        <div class="tag-detail"><span>Event Name:</span> <code>phone_click</code></div>
+        <div class="tag-detail"><span>Event Parameters:</span></div>
+        <div class="tag-detail" style="padding-left: 32px"><code>phone_number</code> = <code>{{dlv - phone_number}}</code></div>
+        <div class="tag-detail"><span>Trigger:</span> CE - phone_click</div>
+      </div>
+
+      <div class="tag-item">
+        <div class="tag-name">Tag: GA4 - email_click</div>
+        <div class="tag-detail"><span>Tipo:</span> GA4 Event</div>
+        <div class="tag-detail"><span>Event Name:</span> <code>email_click</code></div>
+        <div class="tag-detail"><span>Trigger:</span> CE - email_click</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <h4><span class="platform-badge platform-ads">Ads</span> Google Ads — Conversoes + Enhanced Conversions</h4>
+
+      <div class="callout" style="margin-bottom: 16px;">
+        <strong>Pre-requisito:</strong> Ativar Enhanced Conversions em Google Ads &gt; Metas &gt; Conversoes &gt; Configuracoes &gt; Conversoes otimizadas.
+      </div>
+
+      <div class="tag-item">
+        <div class="tag-name">Tag: Vinculador de conversoes</div>
+        <div class="tag-detail"><span>Tipo:</span> Vinculador de conversoes</div>
+        <div class="tag-detail"><span>Trigger:</span> All Pages</div>
+        <div class="callout" style="margin: 8px 0 0 16px; padding: 8px 14px; font-size: 12px;">
+          Obrigatorio para conversoes do Google Ads funcionarem.
+        </div>
+      </div>
+
+      <div class="tag-item">
+        <div class="tag-name">Tag: Google Ads - Conversao (Lead / Formulario)</div>
+        <div class="tag-detail"><span>Tipo:</span> Acompanhamento de conversoes do Google Ads</div>
+        <div class="tag-detail"><span>Codigo de conversao:</span> (obter no Google Ads)</div>
+        <div class="tag-detail"><span>Rotulo de conversao:</span> (obter no Google Ads)</div>
+        <div class="tag-detail"><span>Trigger:</span> CE - form_submit</div>
+      </div>
+
+      <div class="tag-item">
+        <div class="tag-name">Tag: Google Ads - Conversao (WhatsApp)</div>
+        <div class="tag-detail"><span>Tipo:</span> Acompanhamento de conversoes do Google Ads</div>
+        <div class="tag-detail"><span>Codigo de conversao:</span> (obter no Google Ads)</div>
+        <div class="tag-detail"><span>Rotulo de conversao:</span> (obter no Google Ads)</div>
+        <div class="tag-detail"><span>Trigger:</span> CE - whatsapp_click</div>
+      </div>
+
+      <div class="tag-item">
+        <div class="tag-name">Tag: Google Ads - User-provided Data (Lead)</div>
+        <div class="tag-detail"><span>Tipo:</span> Google Ads User-provided Data Event</div>
+        <div class="tag-detail"><span>ID de conversao:</span> (mesmo ID usado na tag de conversao Lead)</div>
+        <div class="tag-detail"><span>Dados fornecidos pelo usuario:</span> selecionar <code>{{User-Provided Data - Lead}}</code></div>
+        <div class="tag-detail"><span>Trigger:</span> CE - form_submit</div>
+      </div>
+
+      <div style="background: #f7f7fa; border: 1px solid #e8e8ee; border-radius: 10px; padding: 18px 22px; margin: 16px 0;">
+        <p style="font-weight: 600; font-size: 14px; color: #1a1a2e; margin-bottom: 10px;">Criar variavel: User-Provided Data - Lead</p>
+        <p style="font-size: 13px; color: #666; margin-bottom: 8px;">Ir em <strong>Variables &gt; User-Defined Variables &gt; New</strong>. Tipo: <strong>User-Provided Data</strong>.</p>
+        <p style="font-size: 13px; color: #666; margin-bottom: 4px;">Mapear os campos:</p>
+        <div style="padding-left: 16px; font-size: 13px; color: #444;">
+          <div style="margin-bottom: 4px;">Email &rarr; <code>{{dlv - user_data.email}}</code></div>
+          <div style="margin-bottom: 4px;">Phone &rarr; <code>{{dlv - user_data.phone_number}}</code></div>
+          <div>Country &rarr; <code>BR</code> (valor fixo)</div>
+        </div>
+      </div>
+
+      <div class="callout-green" style="margin-top: 14px;">
+        Os dados (email, telefone) sao enviados com hash SHA-256 automaticamente pelo GTM. Isso melhora o match rate em ~30%, especialmente com a descontinuacao de cookies de terceiros.
+      </div>
+
+      <div class="divider"></div>
+
+      <h4><span class="platform-badge platform-meta">Meta</span> Meta Pixel (Facebook / Instagram)</h4>
+
+      <div class="tag-item">
+        <div class="tag-name">Tag: Meta Pixel - Base</div>
+        <div class="tag-detail"><span>Tipo:</span> Custom HTML</div>
+        <div class="tag-detail"><span>Trigger:</span> All Pages</div>
+        <pre><code>&lt;script&gt;
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'SEU_PIXEL_ID');
+fbq('track', 'PageView');
+&lt;/script&gt;</code></pre>
+        <div class="callout" style="margin-top: 8px;">
+          <strong>Advanced Matching:</strong> Ativar nas configuracoes do Pixel no Meta Events Manager (Settings &gt; Advanced Matching &gt; ON). O Meta le automaticamente campos de formulario (email, telefone, nome) para melhorar atribuicao em ~40-60%.
+        </div>
+      </div>
+
+      <div class="tag-item">
+        <div class="tag-name">Tag: Meta Pixel - Lead (Formulario)</div>
+        <div class="tag-detail"><span>Tipo:</span> Custom HTML</div>
+        <div class="tag-detail"><span>Trigger:</span> CE - form_submit</div>
+        <pre><code>&lt;script&gt;
+fbq('track', 'Lead', {
+  content_name: 'diagnostico_gratuito',
+  currency: 'BRL',
+  value: 0
+});
+&lt;/script&gt;</code></pre>
+        <p style="font-size: 12px; color: #888; margin-top: 4px; padding-left: 16px;"><code>value: 0</code> pode ser substituido por um valor estimado do lead (ex: ticket medio x taxa de conversao).</p>
+      </div>
+
+      <div class="tag-item">
+        <div class="tag-name">Tag: Meta Pixel - Contact (WhatsApp)</div>
+        <div class="tag-detail"><span>Tipo:</span> Custom HTML</div>
+        <div class="tag-detail"><span>Trigger:</span> CE - whatsapp_click</div>
+        <pre><code>&lt;script&gt;fbq('track', 'Contact', {content_name: 'whatsapp'});&lt;/script&gt;</code></pre>
+      </div>
+
+      <div class="tag-item">
+        <div class="tag-name">Tag: Meta Pixel - Contact (Telefone)</div>
+        <div class="tag-detail"><span>Tipo:</span> Custom HTML</div>
+        <div class="tag-detail"><span>Trigger:</span> CE - phone_click</div>
+        <pre><code>&lt;script&gt;fbq('track', 'Contact', {content_name: 'phone'});&lt;/script&gt;</code></pre>
+      </div>
+    </div>
+
+    <!-- 3. Prioridade de conversoes -->
+    <div class="section">
+      <h2><span class="section-number">3</span> Prioridade de conversoes</h2>
+      <table>
+        <thead>
+          <tr><th>Prioridade</th><th>Evento</th><th>Tipo</th><th>Valor sugerido</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>1 (maior)</strong></td><td><code>form_submit</code></td><td>Lead direto</td><td>Definir no Google Ads</td></tr>
+          <tr><td><strong>2</strong></td><td><code>whatsapp_click</code></td><td>Lead WhatsApp</td><td>~70% do valor do form</td></tr>
+          <tr><td><strong>3</strong></td><td><code>phone_click</code></td><td>Lead telefone</td><td>~50% do valor do form</td></tr>
+          <tr><td><strong>4</strong></td><td><code>cta_click</code></td><td>Micro-conversao</td><td>Nao atribuir valor</td></tr>
+          <tr><td><strong>5</strong></td><td><code>email_click</code></td><td>Engajamento</td><td>Nao atribuir valor</td></tr>
+        </tbody>
+      </table>
+      <div class="callout-yellow" style="margin-top: 14px;">
+        <strong>Dica:</strong> No Google Ads, marcar <code>form_submit</code> e <code>whatsapp_click</code> como conversoes primarias. Os demais como conversoes secundarias (observacao).
+      </div>
+    </div>
+
+    <!-- 4. Checklist -->
+    <div class="section">
+      <h2><span class="section-number">4</span> Checklist de validacao</h2>
+      <ul class="checklist">
+        <li><div class="check-box"></div> Instalar extensao "Tag Assistant" do Google Chrome</li>
+        <li><div class="check-box"></div> Ativar modo Preview no GTM</li>
+        <li><div class="check-box"></div> Verificar que GA4 Configuration dispara em todas as paginas</li>
+        <li><div class="check-box"></div> Verificar que Conversion Linker dispara em todas as paginas</li>
+        <li><div class="check-box"></div> Verificar que Meta Pixel - Base dispara em todas as paginas</li>
+        <li><div class="check-box"></div> Clicar em "Quero Meu Diagnostico Gratuito" — verificar evento <code>cta_click</code></li>
+        <li><div class="check-box"></div> Clicar no botao WhatsApp (hero) — verificar evento <code>whatsapp_click</code> com <code>click_location: hero</code></li>
+        <li><div class="check-box"></div> Clicar no botao flutuante WhatsApp — verificar evento <code>whatsapp_click</code> com <code>click_location: floating_button</code></li>
+        <li><div class="check-box"></div> Clicar em um telefone no rodape — verificar evento <code>phone_click</code></li>
+        <li><div class="check-box"></div> Clicar no email no rodape — verificar evento <code>email_click</code></li>
+        <li><div class="check-box"></div> Preencher e enviar o formulario — verificar evento <code>form_submit</code></li>
+        <li><div class="check-box"></div> No formulario, verificar que <code>user_data.email</code> e <code>user_data.phone_number</code> aparecem no dataLayer</li>
+        <li><div class="check-box"></div> Verificar no GA4 Realtime que os eventos aparecem (sem PII nos parametros)</li>
+        <li><div class="check-box"></div> Verificar no Google Ads que Enhanced Conversions esta ativo</li>
+        <li><div class="check-box"></div> Verificar no Meta Events Manager que o Pixel dispara e Advanced Matching esta ativo</li>
+        <li><div class="check-box"></div> Publicar o container GTM</li>
+      </ul>
+    </div>
+
+    <!-- 5. IDs -->
+    <div class="section">
+      <h2><span class="section-number">5</span> IDs necessarios</h2>
+      <table class="ids-table">
+        <thead>
+          <tr><th>Servico</th><th>ID</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>GTM Container</td><td><code>GTM-NCGC42FM</code> (ja instalado)</td></tr>
+          <tr><td>GA4 Measurement</td><td><input type="text" placeholder="G-__________" /></td></tr>
+          <tr><td>Google Ads</td><td><input type="text" placeholder="AW-__________" /></td></tr>
+          <tr><td>Meta Pixel</td><td><input type="text" placeholder="__________" /></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="doc-footer">
+      Sofisco Contabilidade — Documento interno
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1855,6 +1855,62 @@
       .contact-form { padding: 22px 16px; }
     }
   </style>
+
+  <!-- Typebot (Shot Zap) -->
+  <style>
+    typebot-bubble::part(button) {
+      border-radius: 12px !important;
+      overflow: hidden !important;
+    }
+    typebot-bubble::part(button) img {
+      border-radius: 10px !important;
+      object-fit: cover !important;
+    }
+
+    typebot-bubble { display: block !important; visibility: visible !important; z-index: 9999999 !important; }
+
+    #sz-custom-preview {
+      position: fixed; right: 105px; bottom: 30px;
+      background: #ffffff; padding: 12px 18px; border-radius: 10px;
+      border: 1px solid #e0e0e0; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: none;
+      z-index: 9999998; font-family: sans-serif;
+      cursor: pointer; max-width: 240px; min-height: 40px;
+      align-items: center;
+    }
+
+    #sz-close-preview {
+      position: absolute; top: -10px; right: -10px; width: 24px; height: 24px;
+      background: #444; color: white; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    #sz-custom-preview::after {
+      content: ''; position: absolute; right: -8px; top: 50%;
+      transform: translateY(-50%); border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent; border-left: 8px solid #ffffff;
+    }
+
+    .sz-preview-text { font-size: 14px; color: #444; line-height: 1.4; font-weight: 500; }
+
+    .sz-typing { display: flex; gap: 4px; align-items: center; height: 20px; }
+    .sz-dot {
+      width: 6px; height: 6px; background: #aaa; border-radius: 50%;
+      animation: szBounce 1.4s infinite ease-in-out both;
+    }
+    .sz-dot:nth-child(1) { animation-delay: -0.32s; }
+    .sz-dot:nth-child(2) { animation-delay: -0.16s; }
+
+    @keyframes szBounce {
+      0%, 80%, 100% { transform: scale(0); }
+      40% { transform: scale(1.0); }
+    }
+
+    @media (max-width: 768px) {
+      #sz-custom-preview { right: 90px !important; bottom: 20px !important; max-width: 200px !important; }
+    }
+  </style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -2409,12 +2465,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
-  <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/551136525424?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Sofisco." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" onclick="dataLayer.push({event:'whatsapp_click',click_location:'floating_button'})">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374A9.86 9.86 0 012.07 12.07C2.07 6.547 6.547 2.07 12.07 2.07c2.67 0 5.18 1.04 7.07 2.929a9.93 9.93 0 012.928 7.072c-.003 5.522-4.48 10.001-10.017 10.001zm8.53-18.536A11.9 11.9 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.88 11.88 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 00-3.48-8.413z"/></svg>
-    <span class="whatsapp-tooltip">Fale conosco!</span>
-  </a>
-
   <script>
     // Navbar scroll effect
     const navbar = document.getElementById('navbar');
@@ -2554,6 +2604,129 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }, { threshold: 0.5 });
 
     statNumbers.forEach(el => statsObserver.observe(el));
+  </script>
+
+  <script type="module">
+    import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js'
+
+    Typebot.initBubble({
+      typebot: "sofisco-sitebot-",
+      apiHost: "https://bot.shotzap.com.br",
+      theme: {
+        button: {
+          backgroundColor: "#1cf10a",
+          customIconSrc: "https://s3.shotzap.com.br/typebot/public/workspaces/clroynwk80005s31icafmwyf6/typebots/jlxl1j8iqlfp72v2tqxdr5el/hostAvatar?v=1775848052512", // >>> TROCAR <<< URL do avatar do bot
+          size: "large",
+        },
+        chatWindow: { backgroundColor: "#FFFFFF", buttons: { borderRadius: "6px" } },
+      },
+    });
+
+    // >>> TROCAR <<< 3 mensagens rotativas do balão de preview
+    const messages = [
+      "Sua empresa pode estar pagando imposto demais. Vamos descobrir?",
+      "Consultoria contábil e tributária desde 1996. Como podemos ajudar?",
+      "Fale com um especialista da Sofisco agora mesmo."
+    ];
+    let currentMsgIndex = 0;
+    let isClosedManually = false;
+
+    const setupCustomPreview = () => {
+      if (document.getElementById('sz-custom-preview')) return;
+      const preview = document.createElement('div');
+      preview.id = 'sz-custom-preview';
+      preview.innerHTML = `<div id="sz-close-preview">×</div><div id="sz-content" class="sz-preview-text"></div>`;
+
+      preview.onclick = () => { Typebot.open(); preview.style.display = 'none'; };
+      preview.querySelector('#sz-close-preview').onclick = (e) => {
+        e.stopPropagation(); preview.style.display = 'none'; isClosedManually = true;
+      };
+      document.body.appendChild(preview);
+      startAnimationLoop();
+    };
+
+    const startAnimationLoop = () => {
+      const preview = document.getElementById('sz-custom-preview');
+      const content = document.getElementById('sz-content');
+      const bubble = document.querySelector('typebot-bubble');
+
+      const checkAndShow = () => {
+        const isChatOpen = bubble && bubble.shadowRoot && bubble.shadowRoot.querySelector('.typebot-container');
+        if (isChatOpen || isClosedManually) {
+          preview.style.display = 'none';
+          return;
+        }
+
+        content.innerHTML = `<div class="sz-typing"><div class="sz-dot"></div><div class="sz-dot"></div><div class="sz-dot"></div></div>`;
+        preview.style.display = 'flex';
+
+        setTimeout(() => {
+          if (isClosedManually) return;
+          content.innerHTML = messages[currentMsgIndex];
+          setTimeout(() => {
+            currentMsgIndex = (currentMsgIndex + 1) % messages.length;
+            checkAndShow();
+          }, 10000);
+        }, 3000);
+      };
+
+      setTimeout(checkAndShow, 5000);
+    };
+
+    const applyBranding = () => {
+      const bubble = document.querySelector('typebot-bubble');
+      if (!bubble || !bubble.shadowRoot) return;
+      const chatContainer = bubble.shadowRoot.querySelector('.typebot-container');
+      const preview = document.getElementById('sz-custom-preview');
+
+      if (chatContainer && preview) {
+        preview.style.display = 'none';
+      }
+
+      if (chatContainer && !bubble.shadowRoot.querySelector('.sz-custom-header')) {
+        const style = document.createElement('style');
+        style.textContent = `
+          .typebot-container { padding-top: 65px !important; padding-bottom: 40px !important; }
+          .sz-custom-header {
+            position: absolute; top: 0; left: 0; right: 0; height: 65px; background: #000; color: #fff;
+            display: flex; align-items: center; padding: 0 15px; z-index: 10;
+            border-top-left-radius: 10px; border-top-right-radius: 10px; font-family: sans-serif;
+          }
+          .sz-header-avatar { width: 40px; height: 40px; border-radius: 50%; margin-right: 12px; border: 2px solid #1cf10a; object-fit: cover; }
+          .sz-header-name { font-weight: bold; font-size: 14px; }
+          .sz-header-status { font-size: 11px; color: #1cf10a; display: flex; align-items: center; margin-top: 2px; }
+          .sz-header-status::before { content: ''; width: 8px; height: 8px; background: #1cf10a; border-radius: 50%; margin-right: 5px; display: inline-block; }
+          .sz-custom-footer {
+            position: absolute; bottom: 0; left: 0; right: 0; height: 35px; background: #f8f8f8;
+            display: flex; align-items: center; justify-content: center; text-decoration: none;
+            font-size: 11px; color: #666; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;
+            border-top: 1px solid #eee; font-family: sans-serif;
+          }
+          .sz-footer-logo { height: 18px; margin: 0 8px; }
+          .typebot-branding { display: none !important; }
+        `;
+        bubble.shadowRoot.appendChild(style);
+
+        // >>> TROCAR <<< URL do header avatar + nome do atendente
+        const header = document.createElement('div');
+        header.className = 'sz-custom-header';
+        header.innerHTML = `
+          <img src="https://s3.shotzap.com.br/typebot/public/workspaces/clroynwk80005s31icafmwyf6/typebots/jlxl1j8iqlfp72v2tqxdr5el/hostAvatar?v=1775848052512" class="sz-header-avatar">
+          <div><div class="sz-header-name">Marina</div><div class="sz-header-status">Online agora</div></div>
+        `;
+        chatContainer.prepend(header);
+
+        const footer = document.createElement('a');
+        footer.href = "https://shotzap.com.br?utm_source=Sofisco&utm_id=BotClientes";
+        footer.target = "_blank";
+        footer.className = 'sz-custom-footer';
+        footer.innerHTML = `Feito com <img src="https://s3.shotzap.com.br/typebot/public/workspaces/clroynwk80005s31icafmwyf6/typebots/clrpp9ja3000es31icc20o8yr/hostAvatar?v=1718051134056" class="sz-footer-logo"> <strong>Shot Zap</strong>`;
+        chatContainer.append(footer);
+      }
+    };
+
+    setupCustomPreview();
+    setInterval(applyBranding, 400);
   </script>
 </body>
 </html>

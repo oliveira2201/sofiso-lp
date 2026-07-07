@@ -2245,6 +2245,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="section-subtitle section-subtitle-dark reveal reveal-delay-2">Basta entrar em contato e teremos o prazer em atendê-los. Conte um pouco sobre sua empresa e a gente retorna em até 24h.</p>
       <div class="contact-grid">
         <form class="contact-form reveal" id="contactForm" onsubmit="handleSubmit(event)">
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
           <h3>Seu diagnóstico gratuito</h3>
           <p>Preencha abaixo e descubra se sua empresa está no regime certo e se tem impostos a recuperar.</p>
           <div class="form-row">
@@ -2473,7 +2474,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
 
     // Form submit
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
       e.preventDefault();
       const form = e.target;
       const formData = new FormData(form);
@@ -2497,8 +2498,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       btn.style.opacity = '0.7';
       btn.disabled = true;
 
-      // Simulate submission (replace with real endpoint)
-      setTimeout(() => {
+      const payload = {
+        site: 'sofisco',
+        name: formData.get('name') || '',
+        company: formData.get('company') || '',
+        email: formData.get('email') || '',
+        phone: formData.get('phone') || '',
+        regime: formData.get('regime') || '',
+        message: formData.get('message') || '',
+        _hp: formData.get('website') || ''
+      };
+
+      try {
+        const res = await fetch('https://leads.orbyhub.com.br/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+
         btn.textContent = 'Enviado com sucesso!';
         btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
         btn.style.color = '#fff';
@@ -2510,7 +2528,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           btn.style.color = '';
           btn.disabled = false;
         }, 3000);
-      }, 1500);
+      } catch (err) {
+        btn.textContent = 'Erro ao enviar — tente pelo WhatsApp';
+        btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+        btn.style.color = '#fff';
+        btn.style.opacity = '1';
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+          btn.style.color = '';
+          btn.disabled = false;
+        }, 4000);
+      }
     }
 
     // Animate stat numbers on scroll
